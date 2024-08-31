@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "quicksort.h": "c",
+        "stdlib.h": "c",
+        "bfs.h": "c",
+        "stddef.h": "c"
+    }
+}

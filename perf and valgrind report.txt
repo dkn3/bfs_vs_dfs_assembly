@@ -1,0 +1,62 @@
+perf record -e branch-misses:pp,branches:pp,br_inst_retired.not_taken:pp
+
+perf record -e branch-misses:pp,branches:pp,br_inst_retired.not_taken:pp ./timing
+now analyze this newest version and make an indept analysis report on that
+
+ Performance counter stats for './timing':
+
+       255,790,078      cpu_core/cache-references/
+
+     <not counted>      cpu_atom/cache-references/                                              (0.00%)
+
+       187,159,124      cpu_core/cache-misses/           #   73.17% of all cache refs
+
+     <not counted>      cpu_atom/cache-misses/                                                  (0.00%)
+
+     6,210,673,404      cpu_core/branches/
+
+     <not counted>      cpu_atom/branches/                                                      (0.00%)
+
+        50,744,702      cpu_core/branch-misses/          #    0.82% of all branches
+
+     <not counted>      cpu_atom/branch-misses/                                                 (0.00%)
+
+     6,846,677,593      cpu_core/L1-dcache-loads/
+
+     <not counted>      cpu_atom/L1-dcache-loads/                                               (0.00%)
+
+        76,342,222      cpu_core/L1-dcache-load-misses/  #    1.12% of all L1-dcache accesses
+
+   <not supported>      cpu_atom/L1-dcache-load-misses/
+
+        38,252,567      cpu_core/LLC-loads/
+
+     <not counted>      cpu_atom/LLC-loads/                                                     (0.00%)
+
+        26,870,959      cpu_core/LLC-load-misses/        #   70.25% of all L1-icache accesses
+
+     <not counted>      cpu_atom/LLC-load-misses/                                               (0.00%)
+
+       3.300527424 seconds time elapsed
+
+       2.881059000 seconds user
+
+       0.416153000 seconds sys
+
+
+==1720190== 
+==1720190== I   refs:      27,248,855,043
+==1720190== I1  misses:             1,754
+==1720190== LLi misses:             1,744
+==1720190== I1  miss rate:           0.00%
+==1720190== LLi miss rate:           0.00%
+==1720190==
+==1720190== D   refs:      10,237,543,154  (6,224,918,183 rd   + 4,012,624,971 wr)
+==1720190== D1  misses:       149,170,288  (  114,639,712 rd   +    34,530,576 wr)
+==1720190== LLd misses:       134,917,695  (  100,482,344 rd   +    34,435,351 wr)
+==1720190== D1  miss rate:            1.5% (          1.8%     +           0.9%  )
+==1720190== LLd miss rate:            1.3% (          1.6%     +           0.9%  )
+==1720190==
+==1720190== LL refs:          149,172,042  (  114,641,466 rd   +    34,530,576 wr)
+==1720190== LL misses:        134,919,439  (  100,484,088 rd   +    34,435,351 wr)
+==1720190== LL miss rate:             0.4% (          0.3%     +           0.9%  )
